@@ -14,8 +14,8 @@ To ensure consistency across different machines, follow these steps:
 ### Initialization
 1. **Clone the repository**:
 ```bash
-git clone <your-repository-url>
-cd Movies-Data-Warehouse
+git clone https://github.com/Fredo02/DM_Project_Movies.git
+cd DM_Project_Movies
 ```
 
 2. **Setup Virtual Environment**:
@@ -50,8 +50,3 @@ pip install -r requirements.txt
 - [ ] **Phase 3: ETL & Reconciled Layer**: Data cleaning and integration in PostgreSQL.
 - [ ] **Phase 4: OLAP Analysis**: Execution of complex SQL queries (Roll-up, Drill-down).
 - [ ] **Phase 5: Presentation**: Preparation of slides and live demo.
-
-## 5. How to Contribute / Important Reminders
-* **Git Sync**: Always use `git pull` before starting work on a different machine to get the latest code.
-* **Data Privacy**: NEVER push the `data/` folder to GitHub. The datasets are too large and should remain local (this is handled by the `.gitignore` file). If changing computers, re-download the CSV files from Kaggle and place them in `data/raw/`.
-* **Documentation**: Document every major ETL decision (e.g., how null values were handled) in the Jupyter Notebooks for the final presentation.
