@@ -250,3 +250,33 @@ SELECT
     TO_CHAR(SUM(seasonal_revenue) OVER(PARTITION BY release_year ORDER BY release_month), 'FM$999,999,999,999') AS YTD_revenue_usd
 FROM dw.view_monthly_revenue_trends
 ORDER BY release_year DESC, release_month ASC;
+
+-- ============================================================
+-- 7. PRESENTATION CHARTS DATA EXTRACTION
+-- Queries used to directly generate the charts for the final presentation
+-- ============================================================
+
+-- Chart 1: Top 10 Production Companies by Total Revenue
+SELECT 
+    company_name, 
+    TO_CHAR(total_revenue, 'FM$999,999,999,999') AS total_revenue_usd
+FROM dw.view_top_production_companies
+ORDER BY total_revenue DESC
+LIMIT 10;
+
+-- Chart 2: US Movie Industry Net Profit by Decade
+SELECT 
+    release_decade, 
+    TO_CHAR(total_net_profit, 'FM$999,999,999,999') AS net_profit_usd
+FROM dw.view_historical_profitability
+WHERE production_country = 'US'
+ORDER BY release_decade ASC;
+
+-- Chart 3: 2015 Seasonal Revenue Trends
+SELECT 
+    release_quarter, 
+    TO_CHAR(SUM(seasonal_revenue), 'FM$999,999,999,999') AS quarterly_revenue_usd
+FROM dw.view_monthly_revenue_trends
+WHERE release_year = 2015
+GROUP BY release_quarter
+ORDER BY release_quarter ASC;
