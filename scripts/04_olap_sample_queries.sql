@@ -102,7 +102,7 @@ JOIN dw.dim_date d ON f.date_id = d.date_id
 WHERE m.primary_genre IN ('Action', 'Adventure')
   AND d.release_year BETWEEN 2010 AND 2015
   AND p.country_name IN ('US', 'GB')
-  AND f.average_score > 75
+  AND f.average_score > 55
 ORDER BY f.average_score DESC;
 
 
